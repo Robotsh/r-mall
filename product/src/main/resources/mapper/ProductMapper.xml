@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.robot.product.dao.ProductDao">
+    <resultMap id="BaseResultMap" type="com.robot.api.pojo.Product">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="sku" property="sku" jdbcType="VARCHAR"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="category_id" property="categoryId" jdbcType="INTEGER"/>
+        <result column="mer_id" property="merId" jdbcType="INTEGER"/>
+        <result column="sku" property="sku" jdbcType="VARCHAR"/>
+        <result column="freight_id" property="freightId" jdbcType="VARCHAR"/>
+        <result column="type_id" property="typeId" jdbcType="INTEGER"/>
+        <result column="sketch" property="sketch" jdbcType="VARCHAR"/>
+        <result column="intro" property="intro" jdbcType="VARCHAR"/>
+        <result column="keywords" property="keywords" jdbcType="VARCHAR"/>
+        <result column="tags" property="tags" jdbcType="VARCHAR"/>
+        <result column="marque" property="marque" jdbcType="VARCHAR"/>
+        <result column="barcode" property="barcode" jdbcType="VARCHAR"/>
+        <result column="brand_id" property="brandId" javaType="INTEGER"/>
+        <result column="virtual" property="virtual" jdbcType="INTEGER"/>
+        <result column="price" property="price" jdbcType="DECIMAL"/>
+        <result column="market_price" property="marketPrice" jdbcType="DECIMAL"/>
+        <result column="integral" property="integral" jdbcType="INTEGER"/>
+        <result column="stock" property="stock" jdbcType="INTEGER"/>
+        <result column="warning_stock" property="warnStock" jdbcType="INTEGER"/>
+        <result column="picture_url" property="pictureUrl" jdbcType="VARCHAR"/>
+        <result column="posters" property="posters" jdbcType="VARCHAR"/>
+        <result column="status" property="status" jdbcType="INTEGER"/>
+        <result column="sort" property="sort" jdbcType="INTEGER"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="BASE_SQL">
+        id,sku,name,category_id,mer_id,freight_id,type_id,sketch,intro,keywords,tags,marque,barcode,brand_id,virtual_num,price,
+        market_price,integral,stock,warning_stock,picture_url,posters,status,state,sort,create_time,update_time
+    </sql>
+    <select id="findProductList" resultMap="BaseResultMap">
+        select
+        <include refid="BASE_SQL"/>
+        from product
+    </select>
+
+    <select id="findProductDetail" resultMap="BaseResultMap">
+        select
+        <include refid="BASE_SQL"/>
+        from product where sku=#{sku}
+    </select>
+</mapper>

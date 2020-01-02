@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.robot.product.dao.ProductSkuDao">
+    <resultMap id="BaseResultMap" type="com.robot.api.pojo.ProductSku">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="sku" property="sku" jdbcType="VARCHAR"/>
+        <result column="img" property="img" jdbcType="VARCHAR"/>
+        <result column="price" property="price" javaType="DECIMAL"/>
+        <result column="stock" property="stock" jdbcType="INTEGER"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+
+    </resultMap>
+
+    <select id="findProductSkuList" resultMap="BaseResultMap">
+     select id,name,sku,img,price,stock,create_time,update_time
+    from product_sku
+    </select>
+</mapper>
