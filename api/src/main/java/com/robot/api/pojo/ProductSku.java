@@ -2,6 +2,7 @@ package com.robot.api.pojo;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -10,7 +11,7 @@ import java.util.Date;
  * @date 2019/12/19 15:17
  */
 @Data
-public class ProductSku {
+public class ProductSku implements Serializable {
 
     /**
      * id
@@ -26,6 +27,11 @@ public class ProductSku {
      * 名称
      */
     private String name;
+
+    /**
+     * title
+     */
+    private String title;
 
     /**
      * 主图

@@ -2,6 +2,7 @@ package com.robot.api.pojo;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
@@ -9,7 +10,7 @@ import java.math.BigDecimal;
  * @date 2019/12/11 16:41
  */
 @Data
-public class SimpleProduct {
+public class SimpleProduct implements Serializable {
 
     /**
      * sku
