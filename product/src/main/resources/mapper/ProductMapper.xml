@@ -45,5 +45,6 @@
         select
         <include refid="BASE_SQL"/>
         from product where sku=#{sku}
+        limit 1
     </select>
 </mapper>
