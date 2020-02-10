@@ -4,6 +4,7 @@
     <resultMap id="BaseResultMap" type="com.robot.api.pojo.ProductSku">
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="title" property="title" jdbcType="VARCHAR"/>
         <result column="sku" property="sku" jdbcType="VARCHAR"/>
         <result column="img" property="img" jdbcType="VARCHAR"/>
         <result column="price" property="price" javaType="DECIMAL"/>
@@ -14,7 +15,7 @@
     </resultMap>
 
     <select id="findProductSkuList" resultMap="BaseResultMap">
-     select id,name,sku,img,price,stock,create_time,update_time
+     select id,`name`,sku,img,price,stock,create_time,update_time,title
     from product_sku
     </select>
 </mapper>
